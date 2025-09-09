@@ -1,0 +1,18 @@
+package Activity;
+
+import java.util.Scanner;
+
+public class CalculatingGrades
+{
+
+	public static void main(String[] args)
+	{
+		Scanner input = new Scanner (System.in);
+		
+		System.out.print("Enter a course name: ");
+		String course = input.nextLine();
+		
+		System.out.print(course);
+	}
+
+}
