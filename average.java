@@ -46,9 +46,10 @@ public class CalculatingGrades
 		double exam = allinput.nextDouble();
 		
 		double average = (hwaverage*0.35) + (quizaverage*0.15) + (exam*0.5);
+		int overall = (int)average;
 		
 		System.out.print("The average amount of time you spent on " + course + " per week is " + hours +  "hours"  + minutes + " minutes.");
-		System.out.print("The average grade you got in " + course + " is " + average);
+		System.out.print("The average grade you got in " + course + " is " + overall);
 		
 		
 	}
