@@ -13,7 +13,7 @@ public class CalculatingGrades
 		String course = allinput.nextLine();
 		
 		System.out.print("Please enter average amount of time you spent on " + course + " per week in minutes: ");
-		int minutes = allinput.nextInt();
+		int time = allinput.nextInt();
 		
 		System.out.print("Please enter the first homewrok grade(it should be a whole number)");
 		int hw1 = allinput.nextInt();
