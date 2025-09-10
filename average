@@ -7,12 +7,34 @@ public class CalculatingGrades
 
 	public static void main(String[] args)
 	{
-		Scanner input = new Scanner (System.in);
+		Scanner allinput = new Scanner (System.in);
 		
 		System.out.print("Enter a course name: ");
-		String course = input.nextLine();
+		String course = allinput.nextLine();
 		
-		System.out.print(course);
+		System.out.print("Please enter average amount of time you spent on " + course + " per week in minutes: ");
+		int minutes = allinput.nextInt();
+		
+		System.out.print("Please enter the first homewrok grade(it should be a whole number)");
+		int hw1 = allinput.nextInt();
+		
+		System.out.print("Please enter the second homewrok grade(it should be a whole number)");
+		int hw2 = allinput.nextInt();
+		
+		System.out.print("Please enter the third homewrok grade(it should be a whole number)");
+		int hw3 = allinput.nextInt();
+		
+		System.out.print("Please enter the fourth homewrok grade(it should be a whole number)");
+		int hw4 = allinput.nextInt();
+		
+		System.out.print("Please enter the first quiz grade");
+		double quiz1 = allinput.nextDouble();
+		
+		System.out.print("Please enter the first quiz grade");
+		double quiz2 = allinput.nextDouble();
+		
+		System.out.print("Please enter the final exam grade");
+		double exam = allinput.nextDouble();
 	}
 
 }
