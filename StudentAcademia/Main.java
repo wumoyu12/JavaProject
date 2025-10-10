@@ -1,17 +1,11 @@
-package StudentInfo;
+package AirplaneInfo;
 
+// Main class to start the program
 public class Main
 {
-
-	public static void main(String[] args)
-	{
-		CollectInfo student1 = new CollectInfo();
-		System.out.println("==========================================================");
-		CollectInfo student2 = new CollectInfo();
-		System.out.println("==========================================================");
-		CollectInfo student3 = new CollectInfo();
-		System.out.println("==========================================================");
-	}
-
+    public static void main(String[] args)
+    {
+        // Create a new CollectAirplane object to run the program logic
+        new CollectAirplane();
+    }
 }
-
