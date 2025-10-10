@@ -1,66 +1,66 @@
-package StudentInfo;
+package AirplaneInfo;
 
 import java.util.Scanner;
 
-public class CollectInfo
+// This class handles collecting airplane data and performing operations on them
+public class CollectAirplane
 {
-	String sfname, slname, ans;
-	int grade = 0;
-	int lgrade = 0;
-	int tgrade = 0;
-	Scanner allinput = new Scanner(System.in);
-	
-	public CollectInfo()
-	{
-		AllInfo();
-	}
-	
-	public void AllInfo()
-	{
-		System.out.println("Enter your first name: ");
-		sfname = allinput.nextLine(); 
-		System.out.println("Enter your last name: ");
-		slname = allinput.nextLine(); 
-		System.out.println("Enter your grade level: ");
-		grade = allinput.nextInt();
-		System.out.println("Enter your average grade from last year(0-100): ");
-		lgrade = allinput.nextInt();
-		System.out.println("Enter your average grade from this year(0-100): ");
-		tgrade = allinput.nextInt();
-		
-		PersonInfo studentinfo = new PersonInfo(sfname, slname, grade, lgrade, tgrade);
-		
-		System.out.println("Student Name:" + studentinfo.GetName());
-		System.out.println("Grade Level:" + grade);
-		
-		System.out.println("Average from last year:");
-		System.out.println("100 scale-" + lgrade);
-		System.out.println("4 scale-" + studentinfo.GetGPA());
-		
-		System.out.println("Average from this year:");
-		System.out.println("100 sacle-" + tgrade);
-		System.out.println("4 sacle-" + studentinfo.GetGPA());
-		
-		System.out.println("Current GPA:" );
-		System.out.println("100 scale-" + studentinfo.updateGPA100());
-		System.out.println("4 scale-" + studentinfo.updateGPA());
-		
-	
-	
-	if (studentinfo.isHonorRoll() == true)
-	{
-		System.out.println("Congratulations! You are in Honor Roll!");
-	}
-	
-	if (studentinfo.promote() == true)
-	{
-		System.out.println("You are going to grade " + studentinfo.GetGrade() + ".");
-	}
-	
-	else
-	{
-		System.out.println("You are still in grade " + grade + ", because your GPA is below the 65.");
-	}
-	
-	}
+    public CollectAirplane()
+    {
+        Scanner input = new Scanner(System.in);
+
+        // Get information for the third airplane from user input
+        System.out.println("Enter the details of the third airplane (call-sign, distance, bearing, altitude):");
+        String cs = input.next();
+        cs = cs.toUpperCase(); // convert to uppercase for consistency
+        double dist = input.nextDouble();
+        int dir = input.nextInt();
+        int alt = input.nextInt();
+
+        // Create three airplane objects with different data
+        Airplane airplane1 = new Airplane();
+        Airplane airplane2 = new Airplane("AAA02", 15.8, 128, 30000);
+        Airplane airplane3 = new Airplane(cs, dist, dir, alt);
+
+        // Display initial positions
+        System.out.println("\nInitial Positions:");
+        System.out.println("Airplane 1: " + airplane1);
+        System.out.println("Airplane 2: " + airplane2);
+        System.out.println("Airplane 3: " + airplane3);
+
+        // Calculate and display initial distances between airplanes
+        System.out.println("\nInitial Distances:");
+        System.out.println("Between 1 & 2: " + String.format("%.2f", airplane1.distTo(airplane2)) + " miles");
+        System.out.println("Between 1 & 3: " + String.format("%.2f", airplane1.distTo(airplane3)) + " miles");
+        System.out.println("Between 2 & 3: " + String.format("%.2f", airplane2.distTo(airplane3)) + " miles");
+
+        // Move airplanes based on given distances and directions
+        double d23 = airplane2.distTo(airplane3);
+        airplane1.move(d23, 65);
+        airplane2.move(8, 135);
+        airplane3.move(5, 55);
+
+        // Change altitudes (gain or lose)
+        airplane1.gainAlt(); airplane1.gainAlt(); airplane1.gainAlt();
+        airplane2.loseAlt(); airplane2.loseAlt();
+        airplane3.loseAlt(); airplane3.loseAlt(); airplane3.loseAlt(); airplane3.loseAlt();
+
+        // Display updated positions after movement
+        System.out.println("\nNew Positions:");
+        System.out.println("Airplane 1: " + airplane1);
+        System.out.println("Airplane 2: " + airplane2);
+        System.out.println("Airplane 3: " + airplane3);
+
+        // Display new distances between airplanes
+        System.out.println("\nNew Distances:");
+        System.out.println("Between 1 & 2: " + String.format("%.2f", airplane1.distTo(airplane2)) + " miles");
+        System.out.println("Between 1 & 3: " + String.format("%.2f", airplane1.distTo(airplane3)) + " miles");
+        System.out.println("Between 2 & 3: " + String.format("%.2f", airplane2.distTo(airplane3)) + " miles");
+
+        // Display height differences
+        System.out.println("\nNew Height Differences:");
+        System.out.println("Between 1 & 2: " + (airplane2.getAlt() - airplane1.getAlt()) + " feet");
+        System.out.println("Between 1 & 3: " + (airplane3.getAlt() - airplane1.getAlt()) + " feet");
+        System.out.println("Between 2 & 3: " + (airplane2.getAlt() - airplane3.getAlt()) + " feet");
+    }
 }
